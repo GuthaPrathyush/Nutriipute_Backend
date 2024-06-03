@@ -20,6 +20,7 @@ app.use(cors(
 ));
 app.use(express.json());
 
+app.options('*', cors());
 
 mongoose.connect("mongodb+srv://prathyushgutha:Prathyush%40222003@cluster0.c6szrff.mongodb.net/Nutriipute");
 
