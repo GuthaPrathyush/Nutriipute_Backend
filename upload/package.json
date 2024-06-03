@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nutriipute",
+  "private_key_id": "9c6ce08f4fe3cd45f1bccc6e964b6c3d01db1137",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCoptAUY4sNUKYk\nCofSJM5GYDPyfcUJIXeRKRVB3450nNnLRijcVN11/g5qqpqMZBRHKK+TmuvOq3o4\nCVBeuHACYCG/79FJ8TvEaSSUVnKt2BxuI3mf6e/wWLQtrSJm7ZfMxelqn9y4jboo\nNmH54i0J83ZkgvvnYBahn+FEvcc1mlhfKs2io4AjBJmAKsPJC5V2uGH20jgvIlGv\npDNWhs2zl3xPcQ6UKa3H90rbj13PyTVCyvyIXBq0whnuSlv8KmNMDPspGqnRxBxy\n4jmSa4wZdJ3LjkQVmCyR+XP2cazJmXEn+QgPPvx4/dsh5/U3hThV5y5VAcP8TNYE\nk4IadQO7AgMBAAECggEAHV26gqpYlo9x9nmc78L35fovYWxz6CSbMLwCFw/JutVq\n+QG08LSYQUjlEr61HXf5rfBQLjf+EmT6aZJ5m5yq6Eb76XNlMmZeXVNfirLI0it8\nu9LShT1TSbrwWLm6cUiys3XMsIO4h6wp+4GIqt2usPpjJZpHKaEqH6d6rqEK9HKs\nul3TQkSx8xGwGCJBGndifcQHQ63BpaqXc8hh/oBvS/hnk43t6nH1uuEVRg9xgIvP\nCE7bS6B2m/QqVzOTQPo4FUf9GTGgEk+x0IDTqVK8y6ez7VfSUxkmHdYPBDs1/lOO\nEV/5UEtoSZGw2M6xzKd0UIJGkZ4a8vyKrswZZVUNJQKBgQDZ1euYFqtOyobqlREE\nm+cFx5KlwZZzWBvjk/SIaXf9/iIv2Y8bf5JPESLk20S83oPkXng9B3xG1+WIHR4p\nNz7hPbcjV8CVnjBMREgwrphG2cINtdLBtBSmR1nipYgGn7VAdBTv9yuyQguHvbr5\nBMM13CMI464+ArMpgs1zc/3+fwKBgQDGMvSJUpXq+h8OGLYXgNqN11vpVAuhaG8L\nzqz4Lar/e60Z2fVYDnVhGIJmiUyftXefEe7cTBUc8/ZCtVLGE+Lyww7duZQbw1NK\np0HVbJItUI5rrJ1a2tiTj65SK6JiTSq++kOT/+A32nQmfZ1I73w7Hv+JiDz55epD\nL2n2nUHUxQKBgQCi1EDS4r8SmljXKK4b392EeHWp6VboyUeviX0UKqJC/Z/YXKuY\nRne7GngW0cBD3aCBKAyAsgO3gNJWOE2/SUh7XYJzrLiMHj7EA5ZirV+uNj/Tt8He\ngRmeYV9TB6DyMpdtole0N/I1wSCVSsFkOqcgr3iQwIASYjpCIUApuN53SQKBgQCD\n8O/xatT6dD+wNqshwlm8Cx3YmmaTsN4b0h47qMspAMAfcYVudVGWraZBdC1aNIfJ\nkTqd1NhJSe8qQWM1EZAHY+rFmAEM6l7MV8PvvDMjj3kAHQ0zqnR65y947CtRnWVT\ndW7/W1t8UyT3arAGGcdt5BjhCZzuDyyARVQZJF7qsQKBgHDDYyhlRUXAfI8HWFkm\nC8Nd+NqNdZEOPKna2uC6TN+/kzBdhlfKMfTao559PDkM5RkjBf29snEfCfGxdKCB\nNk53eZNAMw1exOr75cCdsieKnld7eOlaMZ9CG7Gr3Rdzb+mtC6pwRROrMaNSXWnn\n402GqjgHtCrOCivZuvOVbxx6\n-----END PRIVATE KEY-----\n",
+  "client_email": "fileuploadfornutriiputeadmin@nutriipute.iam.gserviceaccount.com",
+  "client_id": "107180094541769625061",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fileuploadfornutriiputeadmin%40nutriipute.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
