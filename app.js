@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const port = 5000;
 
-app.use(cors({origin: 'http://localhost:5173'}));
+app.use(cors({origin: 'https://nutriipute.vercel.app/'}));
 app.use(express.json());
 
 
