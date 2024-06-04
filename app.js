@@ -10,17 +10,17 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const port = 5000;
 
-app.use(cors(
-    {
-        origin: 'https://nutriipute.vercel.app',
-        methods: ['POST', 'GET', 'OPTIONS'],
-        credentials: true,
-        allowedHeaders: ['Content-Type', 'Authorization', 'auth-token', 'Accept']
-    }
-));
+const corsOptions = {
+    origin: 'https://nutriipute.vercel.app', // Replace with your frontend URL
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'auth-token'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
-app.options('*', cors());
+app.options('*', cors(corsOptions));
 
 mongoose.connect("mongodb+srv://prathyushgutha:Prathyush%40222003@cluster0.c6szrff.mongodb.net/Nutriipute");
 
