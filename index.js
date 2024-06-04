@@ -8,7 +8,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
-const port = 5000;
+const port = 3000;
 
 const corsOptions = {
     origin: 'https://nutriipute.vercel.app', // Replace with your frontend URL
@@ -313,4 +313,11 @@ app.use("/", (req, res) => {
 });
 
 
-app.listen();
+app.listen(port, (e) => {
+    if(!e) {
+        console.log("app is listening at port 3000");
+    }
+    else {
+        console.log("Error ", e);
+    }
+});
