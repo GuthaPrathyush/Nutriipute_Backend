@@ -309,11 +309,4 @@ app.use("/", (req, res) => {
 });
 
 
-app.listen(port, (e) => {
-    if(!e) {
-        console.log("app is listening at port 5000");
-    }
-    else {
-        console.log("Error ", e);
-    }
-});
+app.listen();
