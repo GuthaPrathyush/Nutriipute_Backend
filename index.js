@@ -25,27 +25,27 @@ app.options('*', cors(corsOptions));
 mongoose.connect("mongodb+srv://prathyushgutha:Prathyush%40222003@cluster0.c6szrff.mongodb.net/Nutriipute");
 
 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb) =>  {
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
-    }
-});
+// const storage = multer.diskStorage({
+//     destination: './upload/images',
+//     filename: (req, file, cb) =>  {
+//         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+//     }
+// });
 
 
-const upload = multer({storage: storage});
+// const upload = multer({storage: storage});
 
-const productSchema = mongoose.Schema({
-    id: {
-        type: Number,
-        required: true
-    },
-    Name: {
-        type: String,
-        required: true
-    },
+// const productSchema = mongoose.Schema({
+//     id: {
+//         type: Number,
+//         required: true
+//     },
+//     Name: {
+//         type: String,
+//         required: true
+//     },
     
-});
+// });
 
 const userSchema = mongoose.Schema({
     Name: {
@@ -297,13 +297,13 @@ app.post('/deleteFromCart', async (req, res) => {
     res.json({success: true});
 });
 
-app.use('/images', express.static('upload/images'));
-app.post("/upload", upload.single('product'), (req, res) => {
-    res.json({
-        success: true,
-        image_url: `http://localhost:5000/images/${req.file.filename}`
-    });
-});
+// app.use('/images', express.static('upload/images'));
+// app.post("/upload", upload.single('product'), (req, res) => {
+//     res.json({
+//         success: true,
+//         image_url: `http://localhost:5000/images/${req.file.filename}`
+//     });
+// });
 app.use('/*', (req, res) => {
     res.status(404).send();
 });
