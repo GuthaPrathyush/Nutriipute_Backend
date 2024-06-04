@@ -78,6 +78,10 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model("Users", userSchema);
 
+app.get('/', (req, res) => {
+    res.send("API is running");
+})
+
 app.post('/register', async (req, res) => {
     let check = await User.findOne({Email: req.body.Email});
     if(check) {
