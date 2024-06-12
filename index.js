@@ -13,7 +13,7 @@ const port = 3000;
 const corsOptions = {
     origin: 'https://nutriipute.vercel.app', // Replace with your frontend URL
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'auth-token'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'auth-token', 'index-to-modify'],
     credentials: true
 };
 
@@ -200,6 +200,37 @@ app.post('/addAddress', async (req, res) => {
     const userData = await User.findOne({_id: userId});
     if(userData.Address) {
         userData.Address.push(address);
+    }
+    else {
+        userData.Address = [address];
+    }
+    await User.findOneAndUpdate({_id: userId}, {Address: userData.Address});
+    res.json({success: true});
+});
+
+app.post('/editAddress', async (req, res) => {
+    const token = req.header('auth-token');
+    const indexToModify = req.header('index-to-modify');
+    const address = req.body;
+    if(!token) {
+        return res.status(400).json({success: false, errors: 'Please pass a token'});
+    }
+    let userId;
+    try {
+        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        userId = data.user.id;
+    }
+    catch(error) {
+        return res.status(401).json({success: false, errors: error});
+    }
+    const userData = await User.findOne({_id: userId});
+    if(userData.Address) {
+        if(indexToModify < userData.Address.length) {
+            userData.Address[indexToModify] = address;
+        }
+        else {
+            userData.Address.push(address);
+        }
     }
     else {
         userData.Address = [address];
