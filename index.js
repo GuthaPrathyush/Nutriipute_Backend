@@ -104,14 +104,7 @@ app.post('/register', async (req, res) => {
     await user.save().catch(e => {
         return res.status(500).json({success: false, errors: "User Error"});
     });
-    const data = {
-        user: {
-            id: user.id
-        }
-    }
-
-    const token = jwt.sign(data, 'aIewEkdeiIdaeAsdeogDVscwQo');
-    res.json({success: true, token});
+    res.json({success: true});
 });
 
 app.post('/login', async (req, res) => {
