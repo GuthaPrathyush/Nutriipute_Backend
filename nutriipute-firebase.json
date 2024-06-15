@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nutriipute",
+  "private_key_id": "85ba02f07b41edd0d06162c8180156fbbb80f2a8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDNeowpazAudHYq\nnqlhJtZpn3hmqC7mOlBOu2+YckQ1pjX2z7B//8tA9RDvmSI2QezZkan4M7Pg5ywu\n8VWXNaeG9YdCzdr2ojj3YpQLI6Y2znLyFFTPx0zevYJhesGjOQ3R0ojB0jBw4LyM\np7vG+FhuP8/m+DlhX8pi/bA4K0urj46pyzf1oFEL5z0wEixg8WbR+8nV5RSM+XZD\nM7mudxVQUzrDQqqQ6yipgemSnzLDZqIycv6HZ7kolS9Cin56l4pyC0uNPIUzEOfJ\nfjveq92fM8mhznYX2QhEQPI7wQeyXq+DgjhRjAVw7J+nl9torxXBgI34us57staw\nPA1qLhZ5AgMBAAECggEAATOC04CpCdJ8ONxP1u2uUfSA1I/N42JqowUxPjHH0Iz5\n0oktCdiF2Im+OTpa0vigcParKNRrjChpz5XxV0aU5cL0cRlpOukgnmCdBzIkh/w9\nu4jPJJ5QhppSw21faav9FtGNY12uUxCbRZK69CsyQCW/GkVv92/jC+BaCgAFy5lS\n7v8C64LsbNBHni71/IBnPU8SUTS9va+ZeY4Ue8OP6e6MVuTqVu9d7RrgHQJmkZlT\nNKPCtk/hQcVfcT2MuXZ5Ym2nya5RqmhBcw29bnmzMK4paXtBXASrP0rP1F1JXVeW\nTx00O+uNffDi9YgL3hEWLu2Ii36F61cT2P/y9JqaUQKBgQD1aUfvNur2xjgbeUut\npFqzX2cqtD39DHdYzVKJcZGwr1k0adKU6RFed3FyitDiIxR0AvSPWNNSYuysPI1o\n3cVj+QhSc7O2yrV4xvbSVh3qJv6BdDvWCroag5/d0SM1RuPTcOQA+2ZKzr/k2hqx\nZwhAeEpz6z7fii1z5rMZfEQ86QKBgQDWWC/RClGAM1bPN5mHiCBFOL3MTKDc6sX+\n9GGfQvZ67wNdgMY1U9rihQ1lUSFeaG5f/Tw3LC30k/VgyVsSbipeqm5S1Hj0rWZ4\nk1DhlH542nKGzv7lBqun3n3AW4Ev9r7/WjBmhya03+V3nvZsqpEzUuweNd02cpE0\nS+JaYKLTEQKBgA2zmhOOAmJSwNEv3XzNX08CdZUZyRg2uPcZR5Fq6NJvh9B4VAyC\nUrjufEQD4hOuF7c+bv8N24aPBV28Z7zCHQIu5jsMQK1k9erPWPp3WmY3VSBPKAQU\nRz2xuZw9z/Rqh8/HTsOLRbPJhUc2siTTds96p9V+/dynL1B4QembWYf5AoGAdCvX\nvrSY96LbqfO4gnyFAP9/3vqpNRMJvOU3A9qHPJnOeR8STlTkjWEPoZoXO9Pd/qiB\numV3gteuZoa7lYGf9S7qHHqMFBDnOPKfI6QX5+h9qhMGk5rJ7nHoNhliK1zQqBV5\nphgaIm43MF43sS3BBNAsqTMIcjol+PIn/FPj7AECgYEAzfyzZ2FKAC1y28dKIJuP\nvROfzY0l+qDji5lTQf15TTeyWwq43hWXFLkR/vI6ijuHIN5ubdjvSphZv5Mx3dBM\n0ubCHJWcRRRNbm9oOq4Lqwl0WGT8VqC6i24EH48Ydz0bd2YFu1LnYqVgbOnm7ZE/\nrMXg77Zk78v7Vsxrmgwv/UY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-8ibjr@nutriipute.iam.gserviceaccount.com",
+  "client_id": "105384477849915996013",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-8ibjr%40nutriipute.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
