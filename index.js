@@ -22,7 +22,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.options('*', cors(corsOptions));
+app.options('https://nutriipute.vercel.app', cors(corsOptions));
 
 mongoose.connect(`mongodb+srv://${databaseAdmin}:${databasePassword}@cluster0.c6szrff.mongodb.net/Nutriipute`);
 
