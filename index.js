@@ -13,7 +13,7 @@ let databaseAdmin = 'readProducts';
 let databasePassword = 'eMPRerUNleOqrJJC';
 
 const corsOptions = {
-    origin: '*', // Replace with your frontend URL
+    origin: 'https://nutriipute.vercel.app',
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'auth-token', 'index-to-modify'],
     credentials: true
@@ -22,7 +22,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.options('https://nutriipute.vercel.app', cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 mongoose.connect(`mongodb+srv://${databaseAdmin}:${databasePassword}@cluster0.c6szrff.mongodb.net/Nutriipute`);
 
