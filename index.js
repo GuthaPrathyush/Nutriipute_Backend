@@ -2,16 +2,18 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
 const mongoose = require('mongoose');
-const path = require('path');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
+const jwtString = 'aIewEkdeiIdaeAsdeogDVscwQo';
 const port = 3000;
 
+let databaseAdmin = 'readProducts';
+let databasePassword = 'eMPRerUNleOqrJJC';
+
 const corsOptions = {
-    origin: 'https://nutriipute.vercel.app', // Replace with your frontend URL
+    origin: '*', // Replace with your frontend URL
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'auth-token', 'index-to-modify'],
     credentials: true
@@ -22,30 +24,11 @@ app.use(express.json());
 
 app.options('*', cors(corsOptions));
 
-mongoose.connect("mongodb+srv://prathyushgutha:Prathyush%40222003@cluster0.c6szrff.mongodb.net/Nutriipute");
+mongoose.connect(`mongodb+srv://${databaseAdmin}:${databasePassword}@cluster0.c6szrff.mongodb.net/Nutriipute`);
 
-
-// const storage = multer.diskStorage({
-//     destination: './upload/images',
-//     filename: (req, file, cb) =>  {
-//         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
-//     }
-// });
-
-
-// const upload = multer({storage: storage});
-
-// const productSchema = mongoose.Schema({
-//     id: {
-//         type: Number,
-//         required: true
-//     },
-//     Name: {
-//         type: String,
-//         required: true
-//     },
-    
-// });
+app.get('/', (req, res) => {
+    res.send("API is running");
+});
 
 const userSchema = mongoose.Schema({
     Name: {
@@ -78,9 +61,6 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model("Users", userSchema);
 
-app.get('/', (req, res) => {
-    res.send("API is running");
-})
 
 app.post('/register', async (req, res) => {
     let check = await User.findOne({Email: req.body.Email});
@@ -124,7 +104,7 @@ app.post('/login', async (req, res) => {
                 id: user.id
             }
         };
-        const token = jwt.sign(data, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const token = jwt.sign(data, jwtString);
         res.json({ success: true, token });
     } catch (error) {
         console.error("Error logging in user:", error);
@@ -139,7 +119,7 @@ app.post('/getDefaultCart', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -161,7 +141,7 @@ app.post('/getAddress', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -184,7 +164,7 @@ app.post('/addAddress', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -210,7 +190,7 @@ app.post('/editAddress', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -240,7 +220,7 @@ app.post('/delAddress', async(req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -260,7 +240,7 @@ app.post('/addToCart', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -285,7 +265,7 @@ app.post('/removeFromCart', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -307,7 +287,7 @@ app.post('/deleteFromCart', async (req, res) => {
     }
     let userId;
     try {
-        const data = jwt.verify(token, 'aIewEkdeiIdaeAsdeogDVscwQo');
+        const data = jwt.verify(token, jwtString);
         userId = data.user.id;
     }
     catch(error) {
@@ -322,12 +302,6 @@ app.post('/deleteFromCart', async (req, res) => {
 });
 
 // app.use('/images', express.static('upload/images'));
-// app.post("/upload", upload.single('product'), (req, res) => {
-//     res.json({
-//         success: true,
-//         image_url: `http://localhost:5000/images/${req.file.filename}`
-//     });
-// });
 app.use('/*', (req, res) => {
     res.status(404).send();
 });
