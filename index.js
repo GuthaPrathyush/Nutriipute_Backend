@@ -246,7 +246,7 @@ app.post('/delAddress', async(req, res) => {
 
 app.post('/addToCart', async (req, res) => {
     const token = req.header('auth-token');
-    const itemName = req.body.itemName;
+    const product_id = req.body.product_id;
     if(!token) {
         return res.status(400).json({success: false, errors: 'Please pass a token'});
     }
@@ -260,10 +260,10 @@ app.post('/addToCart', async (req, res) => {
     }
     const userData = await User.findOne({_id: userId});
     if(userData.Cart) {
-        userData.Cart[itemName] = userData.Cart[itemName]? userData.Cart[itemName]+1: 1; 
+        userData.Cart[product_id] = userData.Cart[product_id]? userData.Cart[product_id]+1: 1; 
     }
     else {
-        userData.Cart = {[itemName]: 1};
+        userData.Cart = {[product_id]: 1};
     }
     await User.findOneAndUpdate({_id: userId}, {Cart: userData.Cart});
     res.json({success: true});
@@ -271,7 +271,7 @@ app.post('/addToCart', async (req, res) => {
 
 app.post('/removeFromCart', async (req, res) => {
     const token = req.header('auth-token');
-    const itemName = req.body.itemName;
+    const product_id = req.body.product_id;
     if(!token) {
         return res.status(400).json({success: false, errors: 'Please pass a token'});
     }
@@ -285,7 +285,7 @@ app.post('/removeFromCart', async (req, res) => {
     }
     const userData = await User.findOne({_id: userId});
     if(userData.Cart) {
-        userData.Cart[itemName] = userData.Cart[itemName]-1; 
+        userData.Cart[product_id] = userData.Cart[product_id]-1; 
     }
     await User.findOneAndUpdate({_id: userId}, {Cart: userData.Cart});
     res.json({success: true});
@@ -293,7 +293,7 @@ app.post('/removeFromCart', async (req, res) => {
 
 app.post('/deleteFromCart', async (req, res) => {
     const token = req.header('auth-token');
-    const itemName = req.body.itemName;
+    const product_id = req.body.product_id;
     if(!token) {
         return res.status(400).json({success: false, errors: 'Please pass a token'});
     }
@@ -307,7 +307,7 @@ app.post('/deleteFromCart', async (req, res) => {
     }
     const userData = await User.findOne({_id: userId});
     if(userData.Cart) {
-        delete userData.Cart[itemName];
+        delete userData.Cart[product_id];
     }
     await User.findOneAndUpdate({_id: userId}, {Cart: userData.Cart});
     res.json({success: true});
