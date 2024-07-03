@@ -59,7 +59,19 @@ const userSchema = mongoose.Schema({
     }
 });
 
+const productsSchema = mongoose.Schema({
+    Domain: {
+        type: String,
+        requried: true
+    },
+    Products: {
+        type: Array,
+        required: true
+    }
+});
+
 const User = mongoose.model("Users", userSchema);
+const Products = mongoose.model('Products', productsSchema);
 
 
 app.post('/register', async (req, res) => {
@@ -299,6 +311,16 @@ app.post('/deleteFromCart', async (req, res) => {
     }
     await User.findOneAndUpdate({_id: userId}, {Cart: userData.Cart});
     res.json({success: true});
+});
+
+app.post('/getAllProducts', async(req, res) => {
+    const products = await Products.find({}, { Products: 1, _id: 0});
+    // alternative is await Products.find({}).select(['-Domain', '-_id', '-__v']);
+    const _products = [];
+    products.forEach((element) => {
+        _products.push(element.Products);
+    });
+    res.json({success: true, Products: _products});
 });
 
 // app.use('/images', express.static('upload/images'));
