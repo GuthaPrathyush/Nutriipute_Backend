@@ -285,7 +285,12 @@ app.post('/removeFromCart', async (req, res) => {
     }
     const userData = await User.findOne({_id: userId});
     if(userData.Cart) {
-        userData.Cart[product_id] = userData.Cart[product_id]-1; 
+        if(userData.Cart[product_id] > 0) {
+            userData.Cart[product_id] = userData.Cart[product_id]-1;
+        } 
+        else {
+            delete userData.Cart[product_id];
+        }
     }
     await User.findOneAndUpdate({_id: userId}, {Cart: userData.Cart});
     res.json({success: true});
