@@ -100,6 +100,17 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
+    const emailF = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passF = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W\_])[A-Za-z\d\W\_]+$/;
+    if(req.body.Email.trim() === '' || req.body.Password.trim() === '') {
+        return res.status(400).json({success: false, errors: "Empty fields"});
+    }
+    else if(!emailF.test(req.body.Email)) {
+        return res.status(400).json({success: false, errors: "Invalid email!"});
+    }
+    else if(!passF.test(req.body.Password)){
+        return res.status(400).json({success: false, errors: "Invalid Password!"});
+    }
     try {
         const user = await User.findOne({ Email: req.body.Email });
         if (!user) {
@@ -138,6 +149,9 @@ app.post('/getDefaultCart', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Cart) {
         res.json({success: true, Cart: userData.Cart});
     }
@@ -160,6 +174,9 @@ app.post('/getAddress', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Address) {
         res.json({success: true, Address: userData.Address});
     }
@@ -183,6 +200,9 @@ app.post('/addAddress', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Address) {
         userData.Address.push(address);
     }
@@ -209,6 +229,9 @@ app.post('/editAddress', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Address) {
         if(indexToModify < userData.Address.length) {
             userData.Address[indexToModify] = address;
@@ -239,6 +262,9 @@ app.post('/delAddress', async(req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     userData.Address = userData.Address.filter((_, i) => i != index);
     await User.findOneAndUpdate({_id: userId}, {Address: userData.Address});
     res.json({success: true});
@@ -259,6 +285,9 @@ app.post('/addToCart', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Cart) {
         userData.Cart[product_id] = userData.Cart[product_id]? userData.Cart[product_id]+1: 1; 
     }
@@ -284,6 +313,9 @@ app.post('/removeFromCart', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Cart) {
         if(userData.Cart[product_id] > 0) {
             userData.Cart[product_id] = userData.Cart[product_id]-1;
@@ -311,6 +343,9 @@ app.post('/deleteFromCart', async (req, res) => {
         return res.status(401).json({success: false, errors: error});
     }
     const userData = await User.findOne({_id: userId});
+    if(!userData) {
+        return res.status(400).json({success: false, errors: "Invalid User"});
+    }
     if(userData.Cart) {
         delete userData.Cart[product_id];
     }
