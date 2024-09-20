@@ -16,11 +16,6 @@ const port = process.env.PORT;
 let databaseAdmin = process.env.DATABASE_ADMIN;
 let databasePassword = process.env.DATABASE_PASSWORD;
 
-console.log(`saltRounds: ${saltRounds}\n
-            jwtString: ${jwtString}\n
-            port: ${port}\n
-            databaseAdmin: ${databaseAdmin}\n
-            databasePassword: ${databasePassword}`);
 
 const corsOptions = {
     origin: 'https://nutriipute.vercel.app',
